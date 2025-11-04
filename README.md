@@ -12,44 +12,48 @@
   <a href="#-tech-stack">🛠️ Tech Stack</a>
   &nbsp;•&nbsp;
   <a href="#-features">✨ Features</a>
+  &nbsp;•&nbsp;
+  <a href="#-author">💻 Author</a>
 </p>
+
+---
+
+## 🪶 Overview
+
+A simple, object-oriented **To-Do List App** built during **TripleTen Sprint 7** to demonstrate modular JavaScript structure and clean BEM-based design.  
+Tasks can be added, deleted, and marked as complete—all handled through reusable class components.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5** – structure of the app
-- **CSS3 (BEM)** – for organized, modular styling
-- **JavaScript (ES6)** – handles interactivity and task management
-- **GitHub Pages** – for deployment
+- **HTML5** – semantic structure of the app
+- **CSS3 (BEM)** – modular and maintainable styling
+- **Vanilla JavaScript (ES6)** – logic and DOM manipulation
+- **Git & GitHub** – version control
+- **GitHub Pages** – deployment
 
 ---
 
 ## ✨ Features
 
-✅ Add and delete to-dos  
-✅ Mark tasks as completed  
-✅ Live completion counter  
-✅ Local data management using JavaScript  
-✅ Responsive, clean design
-
----
-
-## 📸 Screenshot
-
-![App Preview](./images/todo-app-share.png)
+✅ Add, delete, and mark tasks as completed  
+✅ Form validation via `FormValidator` class  
+✅ Modular `Todo` component for better scalability  
+✅ UUID-based unique task identifiers  
+✅ Clean and responsive interface
 
 ---
 
 ## 🌐 Live Demo
 
-You can view the live version here:  
-👉 [https://riffey55.github.io/se_project_todo-app/](https://riffey55.github.io/se_project_todo-app/)
+🔗 [View the live project on GitHub Pages](https://riffey55.github.io/se_project_todo-app/)
 
 ---
 
 ## 💻 Author
 
 **Beren Riffey**  
-Created with ❤️ using JavaScript & modular design.  
-[LinkedIn](https://www.linkedin.com/in/berenriffey) • [GitHub](https://github.com/riffey55)
+Created with ❤️ using JavaScript & modular design.
+
+🔗 [LinkedIn](https://www.linkedin.com/in/berenriffey) • 🐙 [GitHub](https://github.com/riffey55)
