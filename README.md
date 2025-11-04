@@ -1,17 +1,44 @@
-# Simple Todo App
+# Simple To-Do App
 
-Give a brief description of the project here. Feel free to give it a different name.
+A simple, object-oriented JavaScript to-do list app built as part of **Sprint 7: Introduction to Object-Oriented Programming**.
 
-## Functionality
+---
 
-Give a more detailed explanation of the project and its functionality.
+## 🌐 Live Demo
 
-## Technology
+🔗 [Click here to view the project on GitHub Pages](https://riffey55.github.io/se_project_todo-app/)
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+---
 
-## Deployment
+## 🧩 About
 
-This project is deployed on GitHub Pages:
+This project demonstrates class-based architecture in JavaScript using ES modules.  
+It features clean, reusable components (`Todo` and `FormValidator`) and organized file structure.  
+You can add, delete, and mark tasks as complete—all in a simple, polished interface.
 
-- ADD LINK HERE
+---
+
+## 🛠️ Technologies Used
+
+- HTML5 & CSS3
+- Vanilla JavaScript (ES Modules + Classes)
+- BEM methodology for styling
+- Git & GitHub for version control
+- GitHub Pages for deployment
+
+---
+
+## 💫 Key Features
+
+- Modular OOP structure for maintainability
+- Client-side form validation with `FormValidator` class
+- Unique IDs for tasks using UUID generation
+- Responsive layout with semantic markup
+- Clean UX that resets validation and inputs after each entry
+
+---
+
+## ✨ Author
+
+**Beren Riffey** 💻🌷  
+Created with guidance from TripleTen’s Sprint 7 curriculum.
