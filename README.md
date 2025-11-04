@@ -38,6 +38,14 @@ You can add, delete, and mark tasks as complete—all in a simple, polished inte
 
 ---
 
+---
+
+## 📸 Screenshots
+
+![To-Do App Screenshot](./images/todo-app-share.png)
+
+---
+
 ## ✨ Author
 
 **Beren Riffey** 💻🌷  
