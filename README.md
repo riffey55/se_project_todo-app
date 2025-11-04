@@ -51,9 +51,29 @@ Tasks can be added, deleted, and marked as complete—all handled through reusab
 
 ---
 
+🔗 [LinkedIn](https://www.linkedin.com/in/berenriffey) • 🐙 [GitHub](https://github.com/riffey55)
+
+<div align="center">
+
+🌸 ─────────────────────────────────────────────── 🌸
+
+## 📝 **Recent Updates**
+
+**November 4, 2025**  
+**Commit:** `fix: update checkbox icon and refresh project files`
+
+✨ Replaced missing `checkbox.svg` to restore checklist functionality.  
+🧹 Removed outdated history files and streamlined repo organization.  
+📝 Refreshed `README.md` for clarity and alignment with current project version.  
+✅ Verified local functionality before push; repo confirmed production-ready.
+
+🌸 ─────────────────────────────────────────────── 🌸
+
+</div>
+
+---
+
 ## 💻 Author
 
 **Beren Riffey**  
 Created with ❤️ using JavaScript & modular design.
-
-🔗 [LinkedIn](https://www.linkedin.com/in/berenriffey) • 🐙 [GitHub](https://github.com/riffey55)
