@@ -1,52 +1,55 @@
-# Simple To-Do App
+<p align="center">
+  <img src="./images/todo-app-share.png" width="600" alt="Simple To-Do App Screenshot" />
+</p>
 
-A simple, object-oriented JavaScript to-do list app built as part of **Sprint 7: Introduction to Object-Oriented Programming**.
+<h1 align="center">🪄 Simple To-Do App</h1>
+
+<p align="center">
+  <a href="https://riffey55.github.io/se_project_todo-app/" target="_blank">
+    🌸 <b>Live Demo</b>
+  </a>
+  &nbsp;•&nbsp;
+  <a href="#-tech-stack">🛠️ Tech Stack</a>
+  &nbsp;•&nbsp;
+  <a href="#-features">✨ Features</a>
+</p>
+
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5** – structure of the app
+- **CSS3 (BEM)** – for organized, modular styling
+- **JavaScript (ES6)** – handles interactivity and task management
+- **GitHub Pages** – for deployment
+
+---
+
+## ✨ Features
+
+✅ Add and delete to-dos  
+✅ Mark tasks as completed  
+✅ Live completion counter  
+✅ Local data management using JavaScript  
+✅ Responsive, clean design
+
+---
+
+## 📸 Screenshot
+
+![App Preview](./images/todo-app-share.png)
 
 ---
 
 ## 🌐 Live Demo
 
-🔗 [Click here to view the project on GitHub Pages](https://riffey55.github.io/se_project_todo-app/)
+You can view the live version here:  
+👉 [https://riffey55.github.io/se_project_todo-app/](https://riffey55.github.io/se_project_todo-app/)
 
 ---
 
-## 🧩 About
+## 💻 Author
 
-This project demonstrates class-based architecture in JavaScript using ES modules.  
-It features clean, reusable components (`Todo` and `FormValidator`) and organized file structure.  
-You can add, delete, and mark tasks as complete—all in a simple, polished interface.
-
----
-
-## 🛠️ Technologies Used
-
-- HTML5 & CSS3
-- Vanilla JavaScript (ES Modules + Classes)
-- BEM methodology for styling
-- Git & GitHub for version control
-- GitHub Pages for deployment
-
----
-
-## 💫 Key Features
-
-- Modular OOP structure for maintainability
-- Client-side form validation with `FormValidator` class
-- Unique IDs for tasks using UUID generation
-- Responsive layout with semantic markup
-- Clean UX that resets validation and inputs after each entry
-
----
-
----
-
-## 📸 Screenshots
-
-![To-Do App Screenshot](./images/todo-app-share.png)
-
----
-
-## ✨ Author
-
-**Beren Riffey** 💻🌷  
-Created with guidance from TripleTen’s Sprint 7 curriculum.
+**Beren Riffey**  
+Created with ❤️ using JavaScript & modular design.  
+[LinkedIn](https://www.linkedin.com/in/berenriffey) • [GitHub](https://github.com/riffey55)
