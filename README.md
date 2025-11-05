@@ -44,6 +44,8 @@ Tasks can be added, deleted, and marked as complete—all handled through reusab
 
 ---
 
+![App Screenshot](./images/app-preview.png)
+
 ## ✨ Features
 
 ✅ Add, delete, and mark tasks as completed  

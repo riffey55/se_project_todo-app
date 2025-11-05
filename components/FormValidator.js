@@ -1,5 +1,4 @@
 // components/FormValidator.js
-
 export default class FormValidator {
   constructor(config, formElement) {
     this._config = config;
@@ -55,7 +54,6 @@ export default class FormValidator {
 
   _setEventListeners() {
     this._toggleButtonState();
-
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
@@ -71,7 +69,11 @@ export default class FormValidator {
   }
 
   resetValidation() {
+    // 1) reset the form inputs
+    this._formElement.reset();
+    // 2) hide input errors
     this._inputList.forEach((input) => this._hideInputError(input));
+    // 3) disable/retoggle the submit button
     this._toggleButtonState();
   }
 }
