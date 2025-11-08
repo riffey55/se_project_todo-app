@@ -1,90 +1,106 @@
-<div align="center">
+🪄 Dynamic To-Do App
 
-🌸 ─────────────────────────────────────────────── 🌸
+![Project Banner](./README_banner.png)
 
-<p align="center">
-  <img src="./images/todo-app-share.png" width="560" alt="Simple To-Do App Screenshot" />
-</p>
+Overview
 
-<h1 align="center">🪄 Simple To-Do App</h1>
-<p align="center"><i>Class-based To-Do list with clean BEM styling and a cozy vibe.</i></p>
+This project is a responsive, interactive To-Do List application built with JavaScript (OOP), HTML, and CSS. It allows users to create, manage, and persist their task lists using localStorage.
+The app demonstrates modular, component-based design, DOM manipulation, and smooth UX behaviors such as animated deletions and dynamic datalist suggestions.
 
-<p align="center">
-  <a href="https://riffey55.github.io/se_project_todo-app/" target="_blank">🌸 <b>Live Demo</b></a>
-  &nbsp;•&nbsp; <a href="#-features">✨ Features</a>
-  &nbsp;•&nbsp; <a href="#-tech-stack">🛠️ Tech Stack</a>
-</p>
+🌷❀───────────────────────────────❀🌷
 
----
+✨ Features
 
-## 💡 Why This Project?
+Add New Tasks via a popup form
 
-This app was built to strengthen my understanding of **object-oriented programming (OOP)** and **modular JavaScript architecture**.  
-It demonstrates how reusable class components—like the `FormValidator` and `Todo` classes—can keep code organized and scalable.  
-Beyond functionality, I focused on **clean BEM-based design** and a simple, accessible user experience.
+Automatic Persistence of todos in localStorage
 
-🌸 ─────────────────────────────────────────────── 🌸
+Dynamic <datalist> for quick access to recently used task labels
 
-</div>
+Completion Counter that updates in real-time
 
-## 🪶 Overview
+Clear Completed Tasks button (activates only when needed)
 
-A simple, object-oriented **To-Do List App** built during **TripleTen Sprint 7** to demonstrate modular JavaScript structure and clean BEM-based design.  
-Tasks can be added, deleted, and marked as complete—all handled through reusable class components.
+Animated Delete Transitions for a polished user experience
 
----
+Form Validation and accessibility features
 
-## 🛠️ Tech Stack
+Responsive Layout optimized for both desktop and mobile
 
-- **HTML5** – semantic structure of the app
-- **CSS3 (BEM)** – modular and maintainable styling
-- **Vanilla JavaScript (ES6)** – logic and DOM manipulation
-- **Git & GitHub** – version control
-- **GitHub Pages** – deployment
+🌷❀───────────────────────────────❀🌷
 
----
+🧩 Project Structure
+/pages
+index.js → main entry script
+/components
+Section.js → handles rendering and updating list sections
+Todo.js → represents individual todo items
+TodoCounter.js → updates task count dynamically
+PopupWithForm.js → manages popup open/close and submission
+FormValidator.js → handles form input validation
+/blocks
+(BEM-structured CSS for styling)
 
-![App Screenshot](./images/app-preview.png)
+🌷❀───────────────────────────────❀🌷
 
-## ✨ Features
+🌿 Technologies Used
 
-✅ Add, delete, and mark tasks as completed  
-✅ Form validation via `FormValidator` class  
-✅ Modular `Todo` component for better scalability  
-✅ UUID-based unique task identifiers  
-✅ Clean and responsive interface
+HTML5
 
----
+CSS3 (BEM Methodology)
 
-## 🌐 Live Demo
+Vanilla JavaScript (ES6 Modules)
 
-🔗 [View the live project on GitHub Pages](https://riffey55.github.io/se_project_todo-app/)
+LocalStorage API for data persistence
 
----
+DOM Manipulation & Event Handling
 
-🔗 [LinkedIn](https://www.linkedin.com/in/berenriffey) • 🐙 [GitHub](https://github.com/riffey55)
+🌷❀───────────────────────────────❀🌷
 
-<div align="center">
+⚙️ Setup Instructions
 
-🌸 ─────────────────────────────────────────────── 🌸
+Clone the repository:
 
-## 📝 **Recent Updates**
+git clone <your-repo-link>
 
-**November 4, 2025**  
-**Commit:** `fix: update checkbox icon and refresh project files`
+Open the project folder in your IDE.
 
-✨ Replaced missing `checkbox.svg` to restore checklist functionality.  
-🧹 Removed outdated history files and streamlined repo organization.  
-📝 Refreshed `README.md` for clarity and alignment with current project version.  
-✅ Verified local functionality before push; repo confirmed production-ready.
+Start a local server (e.g., VS Code → “Live Server” extension).
 
-🌸 ─────────────────────────────────────────────── 🌸
+Add, check off, and clear tasks — your list will automatically save between sessions.
 
-</div>
+🌷❀───────────────────────────────❀🌷
 
----
+💫 Key Learning Outcomes
 
-## 💻 Author
+Practiced Object-Oriented Programming in JS
 
-**Beren Riffey**  
-Created with ❤️ using JavaScript & modular design.
+Learned to dynamically generate DOM elements and synchronize state
+
+Implemented modular imports/exports
+
+Refined event listener handling and cleanup
+
+Strengthened understanding of localStorage and persistence patterns
+
+Designed responsive, user-friendly UI transitions
+
+🌷❀───────────────────────────────❀🌷
+
+📸 Screenshot
+
+(Add a screenshot of your app here after deployment)
+
+🌷❀───────────────────────────────❀🌷
+
+🌼 Deployment
+
+Hosted on GitHub Pages:
+👉 Your Project Link Here
+
+🌷❀───────────────────────────────❀🌷
+
+💖 Author
+
+Developed by Beren Riffey as part of the TripleTen Software Engineering Bootcamp.
+Guided and refined with the help of my ever-brilliant study partner 💻🌸
