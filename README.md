@@ -4,8 +4,10 @@
 
 Overview
 
-This project is a responsive, interactive To-Do List application built with JavaScript (OOP), HTML, and CSS. It allows users to create, manage, and persist their task lists using localStorage.
+<p align="center">
+This project is a responsive, interactive To-Do List application built with JavaScript (OOP), HTML, and CSS. It allows users to create, manage, and persist their task lists using localStorage.  
 The app demonstrates modular, component-based design, DOM manipulation, and smooth UX behaviors such as animated deletions and dynamic datalist suggestions.
+</p>
 
 🌷❀───────────────────────────────❀🌷
 
