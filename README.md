@@ -89,7 +89,7 @@ Designed responsive, user-friendly UI transitions
 
 📸 Screenshot
 
-(Add a screenshot of your app here after deployment)
+![Simple To-Do App Screenshot](app-preview.png)
 
 🌷❀───────────────────────────────❀🌷
 
