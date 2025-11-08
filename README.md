@@ -90,6 +90,13 @@ Designed responsive, user-friendly UI transitions
 📸 Screenshot
 
 ![Simple To-Do App Screenshot](app-preview.png)
+📸 Screenshot
+
+<p align="center">
+  <img src="app-preview.png" alt="Simple To-Do App Screenshot" width="600"/>
+</p>
+
+<p align="center"><em>Dynamic To-Do App — built with love, logic, and a little bit of magic ✨</em></p>
 
 🌷❀───────────────────────────────❀🌷
 
