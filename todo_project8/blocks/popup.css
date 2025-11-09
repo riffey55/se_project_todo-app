@@ -1,0 +1,36 @@
+/* Base hidden state */
+.popup {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 1000;
+}
+
+.popup_opened,
+.popup[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.popup__container {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform: scale(0.95);
+  opacity: 0;
+}
+.popup_opened .popup__container {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.popup__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
