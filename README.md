@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./images/README_banner.png" alt="Dynamic To-Do App banner" width="900"/>
+  <img src="./images/README_banner.png" alt="Dynamic To-Do App banner" width="500"/>
 </p>
 
 ---
