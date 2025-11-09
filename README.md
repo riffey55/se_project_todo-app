@@ -1,4 +1,6 @@
-![Project Banner](./images/README_banner.png)
+<p align="center">
+  <img src="./images/README_banner.png" alt="Dynamic To-Do App banner" width="900"/>
+</p>
 
 ---
 
@@ -52,9 +54,13 @@ FormValidator.js → handles form input validation
 ## 🌸 Setup Instructions
 
 1. Clone the repository:
+
    ```bash
-   git clone <your-repo-link>
+
+   git clone https://github.com/riffey55/se_project_todo-app.git
+
    ```
+
    Open the project folder in your IDE.
 
 Start a local server (e.g., VS Code → “Live Server” extension).
@@ -88,7 +94,7 @@ Add, check off, and clear tasks — your list will automatically save between se
 🚀 Deployment
 
 Hosted on GitHub Pages:
-👉 👉 [Live Demo on GitHub Pages](https://berenriffey.github.io/se_project_todo-app/)
+👉 👉 [Live Demo on GitHub Pages](https://riffey55.github.io/se_project_todo-app/)
 
 🌷❀───────────────────────────────❀🌷
 
