@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./images/README_banner.png" alt="Dynamic To-Do App banner" width="500"/>
+  <img src="./images/README_banner.png" alt="Dynamic To-Do App banner" width="850"/>
 </p>
 
 ---
@@ -56,20 +56,18 @@ FormValidator.js → handles form input validation
 1. Clone the repository:
 
    ```bash
-
    git clone https://github.com/riffey55/se_project_todo-app.git
-
    ```
 
-   Open the project folder in your IDE.
+2. Open the project folder in your IDE.
 
-Start a local server (e.g., VS Code → “Live Server” extension).
+3. Start a local server (e.g., VS Code → “Live Server” extension).
 
-Add, check off, and clear tasks — your list will automatically save between sessions.
+4. Add, check off, and clear tasks — your list will automatically save between sessions.
 
 🌷❀───────────────────────────────❀🌷
 
-💫 Key Learning Outcomes
+## 💫 Key Learning Outcomes
 
 - Practiced Object-Oriented Programming in JavaScript
 
@@ -83,25 +81,25 @@ Add, check off, and clear tasks — your list will automatically save between se
 
 - Designed responsive, user-friendly UI transitions
 
-🌷❀───────────────────────────────❀🌷
+## 🌷❀───────────────────────────────❀🌷
 
-📸 Screenshot
+## 📸 Screenshot
 
 <p align="center"> <img src="./images/app-preview.png" alt="Simple To-Do App Screenshot" width="600"/> </p> <p align="center"><em>Dynamic To-Do App — built with love, logic, and a little bit of magic ✨</em></p>
 
 🌷❀───────────────────────────────❀🌷
 
-🚀 Deployment
+## 🚀 Deployment
 
 Hosted on GitHub Pages:
 👉 👉 [Live Demo on GitHub Pages](https://riffey55.github.io/se_project_todo-app/)
 
 🌷❀───────────────────────────────❀🌷
 
-🌷 Author
+## 🌷 Author
 
-Beren Riffey
-💻 Steady Light Developer Binder — Projects • Learning • Reflections
-🌸 GitHub Profile
+**Beren Riffey**  
+💻 _Steady Light Developer Binder — Projects • Learning • Reflections_  
+🌸 [GitHub Profile](https://github.com/riffey55)
 
-<p align="center">🌷💻💞</p> ```
+<p align="center">🌷💻💞</p>
