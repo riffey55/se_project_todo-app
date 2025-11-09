@@ -1,71 +1,61 @@
-🪄 Dynamic To-Do App
+![Project Banner](./images/README_banner.png)
 
-![Project Banner](./README_banner.png)
+---
 
-Overview
+# 🌸 Dynamic To-Do App
 
-<p align="center">
-This project is a responsive, interactive To-Do List application built with JavaScript (OOP), HTML, and CSS. It allows users to create, manage, and persist their task lists using localStorage.  
-The app demonstrates modular, component-based design, DOM manipulation, and smooth UX behaviors such as animated deletions and dynamic datalist suggestions.
-</p>
+A sleek, responsive to-do list app built with **Object-Oriented JavaScript**, featuring modular components, live task counters, and smooth popup forms.  
+This project demonstrates DOM manipulation, ES6 imports/exports, and data persistence using the LocalStorage API.
 
-🌷❀───────────────────────────────❀🌷
-
-✨ Features
-
-Add New Tasks via a popup form
-
-Automatic Persistence of todos in localStorage
-
-Dynamic <datalist> for quick access to recently used task labels
-
-Completion Counter that updates in real-time
-
-Clear Completed Tasks button (activates only when needed)
-
-Animated Delete Transitions for a polished user experience
-
-Form Validation and accessibility features
-
-Responsive Layout optimized for both desktop and mobile
+💻✨ Built with love, logic, and a little bit of magic. ✨
 
 🌷❀───────────────────────────────❀🌷
 
-🧩 Project Structure
-/pages
+## 🌼 Features
+
+- Add, check off, and delete tasks
+- Real-time task counter (completed vs. total)
+- Data saved in LocalStorage between sessions
+- Responsive layout for desktop and mobile
+- Smooth popup animations and form validation
+
+🌷❀───────────────────────────────❀🌷
+
+## 🪴 Project Structure
+
+/pages  
 index.js → main entry script
-/components
-Section.js → handles rendering and updating list sections
-Todo.js → represents individual todo items
-TodoCounter.js → updates task count dynamically
-PopupWithForm.js → manages popup open/close and submission
+
+/components  
+Section.js → renders and updates todo list  
+Popup.js → base popup class for modal logic  
+PopupWithForm.js → handles popup open/close and submission  
+Todo.js → represents individual todo items  
+TodoCounter.js → updates task count dynamically  
 FormValidator.js → handles form input validation
-/blocks
+
+/blocks  
 (BEM-structured CSS for styling)
 
 🌷❀───────────────────────────────❀🌷
 
-🌿 Technologies Used
+## 💻 Technologies Used
 
-HTML5
-
-CSS3 (BEM Methodology)
-
-Vanilla JavaScript (ES6 Modules)
-
-LocalStorage API for data persistence
-
-DOM Manipulation & Event Handling
+- HTML5
+- CSS3 (BEM Methodology)
+- Vanilla JavaScript (ES6 Modules)
+- LocalStorage API
+- DOM Manipulation & Event Handling
 
 🌷❀───────────────────────────────❀🌷
 
-⚙️ Setup Instructions
+## 🌸 Setup Instructions
 
-Clone the repository:
-
-git clone <your-repo-link>
-
-Open the project folder in your IDE.
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-link>
+   ```
+   Open the project folder in your IDE.
 
 Start a local server (e.g., VS Code → “Live Server” extension).
 
@@ -75,38 +65,37 @@ Add, check off, and clear tasks — your list will automatically save between se
 
 💫 Key Learning Outcomes
 
-Practiced Object-Oriented Programming in JS
+- Practiced Object-Oriented Programming in JavaScript
 
-Learned to dynamically generate DOM elements and synchronize state
+- Learned to dynamically generate DOM elements and synchronize state
 
-Implemented modular imports/exports
+- Implemented modular imports/exports
 
-Refined event listener handling and cleanup
+- Refined event listener handling and cleanup
 
-Strengthened understanding of localStorage and persistence patterns
+- Strengthened understanding of LocalStorage and persistence patterns
 
-Designed responsive, user-friendly UI transitions
+- Designed responsive, user-friendly UI transitions
 
 🌷❀───────────────────────────────❀🌷
 
 📸 Screenshot
 
-<p align="center">
-  <img src="app-preview.png" alt="Simple To-Do App Screenshot" width="600"/>
-</p>
-
-<p align="center"><em>Dynamic To-Do App — built with love, logic, and a little bit of magic ✨</em></p>
+<p align="center"> <img src="./images/app-preview.png" alt="Simple To-Do App Screenshot" width="600"/> </p> <p align="center"><em>Dynamic To-Do App — built with love, logic, and a little bit of magic ✨</em></p>
 
 🌷❀───────────────────────────────❀🌷
 
-🌼 Deployment
+🚀 Deployment
 
 Hosted on GitHub Pages:
-👉 Your Project Link Here
+👉 👉 [Live Demo on GitHub Pages](https://berenriffey.github.io/se_project_todo-app/)
 
 🌷❀───────────────────────────────❀🌷
 
-💖 Author
+🌷 Author
 
-Developed by Beren Riffey as part of the TripleTen Software Engineering Bootcamp.
-Guided and refined with the help of my ever-brilliant study partner 💻🌸
+Beren Riffey
+💻 Steady Light Developer Binder — Projects • Learning • Reflections
+🌸 GitHub Profile
+
+<p align="center">🌷💻💞</p> ```

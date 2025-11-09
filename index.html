@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple ToDo App</title>
+    <!-- your styles -->
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="stylesheet" href="./blocks/popup.css" />
+    <link rel="stylesheet" href="./blocks/counter.css" />
   </head>
 
   <body>
@@ -13,84 +15,94 @@
       <div class="page__content">
         <header class="header">
           <h1 class="header__title">The Simple ToDo App</h1>
-          <p class="header__banner">Do these things</p>
-          <button class="button button_action_add header__button">
-            + Add Todo
-          </button>
-          <div class="popup" id="add-todo-popup">
-            <div class="popup__content">
-              <h3 class="popup__title">Add new ToDo</h3>
+
+          <div class="header__row">
+            <p class="header__banner">Do these things</p>
+            <button
+              class="button button_action_add header__button"
+              type="button"
+            >
+              <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 5v14M5 12h14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="button__label">Add Todo</span>
+            </button>
+          </div>
+        </header>
+
+        <main>
+          <section class="counter">
+            <p class="counter__text" aria-live="polite">
+              Showing 0 out of 0 completed
+            </p>
+            <button
+              class="counter__clear button"
+              type="button"
+              aria-label="Clear completed"
+              disabled
+            >
+              Clear completed
+            </button>
+          </section>
+
+          <section class="todos">
+            <ul class="todos__list">
+              <p class="todos__empty" hidden>
+                Nothing here yet — add your first to-do!
+              </p>
+
+              <!-- items render here by JS -->
+            </ul>
+          </section>
+
+          <!-- Single popup used by PopupWithForm -->
+          <div class="popup popup_type_new-todo" aria-hidden="true">
+            <div
+              class="popup__container"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="new-todo-title"
+            >
               <button
-                aria-label="Close modal"
                 class="popup__close"
                 type="button"
+                aria-label="Close"
               ></button>
-              <form
-                class="popup__form"
-                name="add-todo-form"
-                id="add-todo-form"
-                novalidate
-              >
-                <fieldset class="popup__fieldset">
-                  <label class="popup__label" for="todo-name">
-                    What needs to be done?
-                    <input
-                      class="popup__input"
-                      id="todo-name"
-                      maxlength="40"
-                      minlength="2"
-                      name="name"
-                      placeholder="Write here"
-                      required
-                      type="text"
-                    />
-                    <span class="popup__error" id="todo-name-error"></span>
-                  </label>
-                  <label class="popup__label" for="todo-date">
-                    When does it need to be done? (optional)
-                    <input
-                      class="popup__input popup__input_type_date"
-                      id="todo-date"
-                      name="date"
-                      type="date"
-                      min="2023-01-01"
-                      max="3000-12-31"
-                    />
-                    <span class="popup__error" id="todo-date-error"></span>
-                  </label>
-                </fieldset>
-                <button class="button popup__button" type="submit">
-                  Create
-                </button>
+              <h2 id="new-todo-title" class="popup__title">New To-Do</h2>
+              <form class="popup__form popup__form_type_new-todo" novalidate>
+                <input
+                  class="popup__input"
+                  id="todo-text"
+                  type="text"
+                  name="todoText"
+                  placeholder="What’s next?"
+                  required
+                  minlength="1"
+                  maxlength="120"
+                  list="recentTodos"
+                />
+
+                <datalist id="recentTodos"></datalist>
+
+                <span
+                  class="popup__error"
+                  id="todo-text-error"
+                  aria-live="polite"
+                ></span>
+                <button class="popup__save" type="submit">Add</button>
               </form>
             </div>
           </div>
-        </header>
-        <main>
-          <section class="counter">
-            <h2 class="counter__text">Showing X out of Y completed</h2>
-          </section>
-          <section class="todos">
-            <ul class="todos__list">
-              <template id="todo-template">
-                <li class="todo">
-                  <label class="todo__label" for="">
-                    <input class="todo__completed" id="" type="checkbox" />
-                    <span class="todo__name"></span>
-                    <span class="todo__date"></span>
-                  </label>
-                  <ul class="todo__buttons">
-                    <!-- List is used to support future additional buttons -->
-                    <li>
-                      <button class="todo__delete-btn" type="button"></button>
-                    </li>
-                  </ul>
-                </li>
-              </template>
-            </ul>
-          </section>
-          <script type="module" src="./pages/index.js"></script>
         </main>
+
+        <!-- App entry -->
+        <script type="module" src="./pages/index.js"></script>
       </div>
     </div>
   </body>
