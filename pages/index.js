@@ -16,15 +16,18 @@ const selectors = {
   clearBtn: ".counter__clear",
 };
 
+// optional clarity
+const INCREMENT = true;
+const DECREMENT = false;
+
 // ---- LocalStorage helpers
 const STORAGE_KEY = "todos";
 
 const loadTodos = () => {
   try {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
-    // 🧹 filter out empty or invalid todos
     return data.filter(
-      (t) => t && typeof t.text === "string" && t.text.trim() !== ""
+      (t) => t && typeof t.text === "string" && t.text.trim() !== "",
     );
   } catch {
     return [];
@@ -45,7 +48,7 @@ const snapshotTodosFromDOM = () => {
   });
 };
 
-// ---- Empty state toggle (also hides/shows the counter row)
+// ---- Empty state toggle
 function updateEmptyState() {
   const list = document.querySelector(selectors.listContainer);
   const empty = document.querySelector(".todos__empty");
@@ -66,7 +69,7 @@ function updateClearButtonState() {
   btn.disabled = !hasCompleted;
 }
 
-// --- Build a de-duplicated, recent-first list of labels
+// --- recent <datalist>
 function getRecentTodoTexts(limit = 8) {
   const stored = loadTodos() ?? [];
   const texts = [];
@@ -77,8 +80,6 @@ function getRecentTodoTexts(limit = 8) {
   }
   return texts;
 }
-
-// --- Render into the <datalist>
 function updateDatalist() {
   const dl = document.getElementById("recentTodos");
   if (!dl) return;
@@ -91,28 +92,31 @@ function updateDatalist() {
   }
 }
 
-// ---- Initial data (from storage)
+// ---- Initial data
 const initialTodos = loadTodos();
 
 // ---- Render function for Section
 function renderTodo(item) {
   const todo = new Todo(item, (todoInstance) => {
     const li = document.querySelector(`[data-id="${todoInstance.id}"]`);
-    const completed = li.querySelector('input[type="checkbox"]').checked;
+    const wasCompleted = li.querySelector('input[type="checkbox"]').checked;
 
-    // animate out, then remove
     li.classList.add("todo_deleting");
     li.addEventListener(
       "animationend",
       () => {
         li.remove();
-        counter.onDeleteTodo({ completed });
+
+        // deleting reduces total; if it was completed, reduce completed
+        counter.updateTotal(DECREMENT);
+        if (wasCompleted) counter.updateCompleted(DECREMENT);
+
         updateEmptyState();
         updateClearButtonState();
         saveTodos(snapshotTodosFromDOM());
-        updateDatalist(); // keep datalist fresh after delete
+        updateDatalist();
       },
-      { once: true }
+      { once: true },
     );
   });
   return todo.getView();
@@ -127,20 +131,17 @@ const section = new Section({
 section.renderItems();
 updateEmptyState();
 updateClearButtonState();
-updateDatalist(); // initial render
+updateDatalist();
 
 // ---- Counter
-const counter = new TodoCounter({
-  selector: selectors.counterEl,
-  todosSelector: selectors.listContainer,
-});
-counter.bindList(document.querySelector(selectors.listContainer));
+const counter = new TodoCounter(initialTodos, selectors.counterEl);
 
-// ---- Persist + clearBtn state on checkbox toggle
+// ---- Checkbox toggles completed count
 document
   .querySelector(selectors.listContainer)
   .addEventListener("change", (e) => {
     if (e.target.matches('input[type="checkbox"]')) {
+      counter.updateCompleted(e.target.checked ? INCREMENT : DECREMENT);
       saveTodos(snapshotTodosFromDOM());
       updateClearButtonState();
       updateDatalist();
@@ -164,21 +165,24 @@ const addTodoPopup = new PopupWithForm(selectors.newTodoPopup, {
   handleFormSubmit: ({ todoText }) => {
     const newItem = { text: todoText, completed: false };
     section.addItem(newItem, { prepend: true });
-    counter.onAddTodo({ completed: false });
+
+    // new item => total +1
+    counter.updateTotal(INCREMENT);
+
     updateEmptyState();
     updateClearButtonState();
     saveTodos(snapshotTodosFromDOM());
     updateDatalist();
-    addTodoPopup.close(); // PopupWithForm handles preventDefault + reset
+    addTodoPopup.close();
   },
 });
 addTodoPopup.setEventListeners();
 
-// ---- Clear completed handler
+// ---- Clear completed
 document.querySelector(selectors.clearBtn).addEventListener("click", () => {
   const list = document.querySelector(selectors.listContainer);
   const completedLis = Array.from(list.children).filter(
-    (li) => li.querySelector('input[type="checkbox"]')?.checked
+    (li) => li.querySelector('input[type="checkbox"]')?.checked,
   );
   if (completedLis.length === 0) return;
 
@@ -188,7 +192,10 @@ document.querySelector(selectors.clearBtn).addEventListener("click", () => {
     li.addEventListener(
       "animationend",
       () => {
-        counter.onDeleteTodo({ completed: true });
+        // each removed completed item reduces both counts
+        counter.updateTotal(DECREMENT);
+        counter.updateCompleted(DECREMENT);
+
         li.remove();
         remaining -= 1;
         if (remaining === 0) {
@@ -198,7 +205,7 @@ document.querySelector(selectors.clearBtn).addEventListener("click", () => {
           updateDatalist();
         }
       },
-      { once: true }
+      { once: true },
     );
   });
 });
@@ -208,7 +215,7 @@ document
   .querySelector(selectors.newTodoOpenBtn)
   .addEventListener("click", () => {
     if (typeof newTodoValidator.resetValidation === "function") {
-      newTodoValidator.resetValidation(); // single source of truth for reset
+      newTodoValidator.resetValidation();
     }
     addTodoPopup.open();
   });

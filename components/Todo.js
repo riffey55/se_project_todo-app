@@ -2,7 +2,7 @@
 export default class Todo {
   constructor(
     { text, completed = false, id = crypto.randomUUID() },
-    handleDelete
+    handleDelete,
   ) {
     this._text = text;
     this._completed = completed;
@@ -35,10 +35,12 @@ export default class Todo {
     const delBtn = document.createElement("button");
     delBtn.className = "todo__delete-btn";
     delBtn.type = "button";
-    delBtn.setAttribute("aria-label", "Delete"); // accessibility support
+    delBtn.setAttribute("aria-label", "Delete");
     delBtn.innerHTML = `
   <svg class="todo__delete-icon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M3 6h18M9 6V4h6v2m2 0v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6h12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3 6h18M9 6V4h6v2m2 0v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6h12z"
+      fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 `;
 
