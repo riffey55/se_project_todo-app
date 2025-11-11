@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple ToDo App</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./blocks/popup.css" />
+
+    <!-- Import map for uuid (if used in your modules) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "uuid": "https://cdn.jsdelivr.net/npm/uuid@9.0.1/dist/esm-browser/index.js"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="page__content">
+        <header class="header">
+          <h1 class="header__title">The Simple ToDo App</h1>
+          <p class="header__banner">Do these things</p>
+          <button
+            id="open-add-todo"
+            class="button header__button"
+            type="button"
+          >
+            + Add Todo
+          </button>
+        </header>
+
+        <main>
+          <section class="counter">
+            <h2 class="counter__text" id="todo-counter">
+              Showing 0 out of 0 completed
+            </h2>
+          </section>
+
+          <section class="todos">
+            <!-- Where items will render -->
+            <ul class="todos__list" id="todo-list"></ul>
+
+            <!-- Card template (outside the <ul>) -->
+            <template id="todo-template">
+              <li class="todo">
+                <label class="todo__label">
+                  <input class="todo__completed" type="checkbox" />
+                  <span class="todo__name"></span>
+                  <span class="todo__date"></span>
+                </label>
+                <ul class="todo__buttons">
+                  <li>
+                    <button class="todo__delete-btn" type="button"></button>
+                  </li>
+                </ul>
+              </li>
+            </template>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Popup lives OUTSIDE the header to avoid stacking/overflow issues -->
+    <div class="popup" id="add-todo-popup" aria-hidden="true">
+      <div
+        class="popup__content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="add-todo-title"
+      >
+        <h3 class="popup__title" id="add-todo-title">Add new ToDo</h3>
+        <button
+          aria-label="Close modal"
+          class="popup__close"
+          type="button"
+        ></button>
+
+        <form
+          class="popup__form"
+          name="add-todo-form"
+          id="add-todo-form"
+          novalidate
+        >
+          <fieldset class="popup__fieldset">
+            <label class="popup__label" for="todo-name">
+              What needs to be done?
+              <input
+                class="popup__input"
+                id="todo-name"
+                name="name"
+                type="text"
+                placeholder="Write here"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span class="popup__error" id="todo-name-error"></span>
+            </label>
+
+            <label class="popup__label" for="todo-time">
+              What date?
+              <input
+                class="popup__input"
+                id="todo-time"
+                name="time"
+                type="date"
+                required
+              />
+              <span class="popup__error" id="todo-time-error"></span>
+            </label>
+          </fieldset>
+
+          <button class="button popup__button" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts at the end -->
+    <script type="module" src="./pages/index.js"></script>
+  </body>
+</html>
