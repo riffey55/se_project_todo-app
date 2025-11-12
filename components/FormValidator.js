@@ -4,17 +4,17 @@ export default class FormValidator {
     this._config = config;
     this._formElement = formElement;
     this._inputList = Array.from(
-      this._formElement.querySelectorAll(this._config.inputSelector),
+      this._formElement.querySelectorAll(this._config.inputSelector)
     );
     this._submitButton = this._formElement.querySelector(
-      this._config.submitButtonSelector,
+      this._config.submitButtonSelector
     );
   }
 
   // --- private helpers
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`,
+      `#${inputElement.id}-error`
     );
     inputElement.classList.add(this._config.inputErrorClass);
     errorElement.textContent = errorMessage;
@@ -23,7 +23,7 @@ export default class FormValidator {
 
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`,
+      `#${inputElement.id}-error`
     );
     inputElement.classList.remove(this._config.inputErrorClass);
     errorElement.classList.remove(this._config.errorClass);
@@ -64,7 +64,7 @@ export default class FormValidator {
 
   // --- public methods
   enableValidation() {
-    // Validator only wires up field listeners and button state.
+    this._formElement.addEventListener("submit", (evt) => evt.preventDefault());
     this._setEventListeners();
   }
 

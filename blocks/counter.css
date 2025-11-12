@@ -1,9 +1,5 @@
 .counter {
   padding: 20px 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 
 .counter__text {
@@ -13,33 +9,4 @@
   font-weight: 400;
   color: #7d7d7d;
   margin: 0;
-}
-
-.counter__clear {
-  padding: 8px 12px;
-  border-radius: 10px;
-  border: none;
-  background: #f2f4ff;
-  color: #2b4df2;
-  cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    background 0.2s ease;
-}
-
-.counter__clear:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  background: #e9ecff;
-}
-
-.counter__clear:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-/* Hide the entire counter row when there are no todos */
-.counter--hidden {
-  display: none;
 }

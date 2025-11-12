@@ -1,57 +1,65 @@
 // components/Todo.js
+
 export default class Todo {
-  constructor(
-    { text, completed = false, id = crypto.randomUUID() },
-    handleDelete,
-  ) {
-    this._text = text;
-    this._completed = completed;
-    this.id = id;
-    this._handleDelete = handleDelete;
+  constructor({ data, selector }) {
+    this._selector = selector;
+
+    // Normalize and ensure a date exists
+    this._data = {
+      name: data?.name ?? "",
+      completed: Boolean(data?.completed),
+      // If no date provided, default to now so requirements are met
+      date: data?.date ? new Date(data.date) : new Date(),
+    };
+  }
+
+  static _formatDate(date) {
+    // Example: Nov 12, 2025
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   }
 
   getView() {
-    // Build DOM safely (no innerHTML with user data)
-    const li = document.createElement("li");
-    li.className = "todo";
-    li.dataset.id = this.id;
+    const template = document
+      .querySelector(this._selector)
+      .content.querySelector(".todo")
+      .cloneNode(true);
 
-    const checkboxId = `todo-${this.id}`;
+    const checkbox = template.querySelector(".todo__completed");
+    const nameEl = template.querySelector(".todo__name");
+    const dateEl = template.querySelector(".todo__date");
+    const deleteBtn = template.querySelector(".todo__delete-btn");
 
-    const label = document.createElement("label");
-    label.className = "todo__label";
-    label.setAttribute("for", checkboxId);
+    // Name
+    nameEl.textContent = this._data.name;
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.id = checkboxId;
-    checkbox.className = "todo__completed";
-    checkbox.checked = this._completed;
+    // Date (always present now)
+    dateEl.textContent = Todo._formatDate(this._data.date);
 
-    const spanText = document.createElement("span");
-    spanText.className = "todo__name";
-    spanText.textContent = this._text;
+    // Completed state
+    checkbox.checked = this._data.completed;
 
-    const delBtn = document.createElement("button");
-    delBtn.className = "todo__delete-btn";
-    delBtn.type = "button";
-    delBtn.setAttribute("aria-label", "Delete");
-    delBtn.innerHTML = `
-  <svg class="todo__delete-icon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M3 6h18M9 6V4h6v2m2 0v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6h12z"
-      fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-`;
+    // Handlers
+    deleteBtn.addEventListener("click", () => {
+      template.remove();
+    });
 
-    delBtn.addEventListener("click", () => this._handleDelete(this));
+    checkbox.addEventListener("change", () => {
+      this._data.completed = checkbox.checked;
+    });
 
-    label.append(checkbox, spanText);
-    li.append(label, delBtn);
-    return li;
+    return template;
   }
+}
 
-  get completed() {
-    return this._completed;
-  }
+/**
+ * Helper used for both initial render and new adds.
+ * Keeps all todo DOM building in one place.
+ */
+export function renderTodo(item, listElement) {
+  const todo = new Todo({ data: item, selector: "#todo-template" });
+  listElement.append(todo.getView());
 }

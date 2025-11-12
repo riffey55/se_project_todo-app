@@ -1,32 +1,42 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(selector, { handleFormSubmit }) {
+  constructor(selector, handleSubmit) {
     super(selector);
-    this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector("form");
-    this._submitBtn = this._form.querySelector('[type="submit"]');
+    this._handleSubmit = handleSubmit;
+  }
+
+  // NEW: ensure a11y + visibility are in sync
+  open() {
+    super.open?.();
+    this._popup.classList.add("popup_opened");
+    this._popup.setAttribute("aria-hidden", "false");
+    const firstInput = this._form.querySelector("input, textarea, select");
+    firstInput?.focus();
   }
 
   _getInputValues() {
-    const inputs = [...this._form.querySelectorAll("input, textarea")];
-    return inputs.reduce((acc, input) => {
-      acc[input.name] = input.value;
-      return acc;
-    }, {});
+    const values = {};
+    [...this._form.elements].forEach((el) => {
+      if (el.name) values[el.name] = el.value;
+    });
+    return values;
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      const values = this._getInputValues();
-      this._handleFormSubmit(values);
+    this._form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this._handleSubmit(this._getInputValues());
     });
   }
 
   close() {
-    super.close();
+    super.close?.();
+    // mirror the open() behavior on close
+    this._popup.classList.remove("popup_opened");
+    this._popup.setAttribute("aria-hidden", "true");
     this._form.reset();
   }
 }
