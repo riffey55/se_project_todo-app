@@ -61,5 +61,7 @@ export default class Todo {
  */
 export function renderTodo(item, listElement) {
   const todo = new Todo({ data: item, selector: "#todo-template" });
-  listElement.append(todo.getView());
+  const todoElement = todo.getView();
+  listElement.append(todoElement);
+  return todoElement; // ✅ prevents “undefined” text
 }

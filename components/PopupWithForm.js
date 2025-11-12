@@ -9,6 +9,7 @@ export default class PopupWithForm extends Popup {
 
   // NEW: ensure a11y + visibility are in sync
   open() {
+    this._opener = document.activeElement;
     super.open?.();
     this._popup.classList.add("popup_opened");
     this._popup.setAttribute("aria-hidden", "false");
@@ -34,8 +35,15 @@ export default class PopupWithForm extends Popup {
 
   close() {
     super.close?.();
-    // mirror the open() behavior on close
     this._popup.classList.remove("popup_opened");
+
+    // 👇 add these two lines
+    const fallback = document.querySelector("#open-add-todo");
+    (this._opener && document.contains(this._opener)
+      ? this._opener
+      : fallback
+    )?.focus();
+
     this._popup.setAttribute("aria-hidden", "true");
     this._form.reset();
   }
