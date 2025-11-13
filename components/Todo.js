@@ -4,17 +4,36 @@ export default class Todo {
   constructor({ data, selector }) {
     this._selector = selector;
 
-    // Normalize and ensure a date exists
     this._data = {
       name: data?.name ?? "",
       completed: Boolean(data?.completed),
-      // If no date provided, default to now so requirements are met
-      date: data?.date ? new Date(data.date) : new Date(),
+      date: this._normalizeDate(data?.date),
     };
   }
 
+  // Make sure we treat "YYYY-MM-DD" as a local date (no timezone shift)
+  _normalizeDate(rawDate) {
+    if (!rawDate) {
+      return new Date();
+    }
+
+    // If it's already a Date object, just use it
+    if (rawDate instanceof Date) {
+      return rawDate;
+    }
+
+    // If it's a string like "2025-11-13"
+    if (typeof rawDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
+      const [year, month, day] = rawDate.split("-").map(Number);
+      return new Date(year, month - 1, day); // month is 0-based
+    }
+
+    // Fallback: let Date try to parse it
+    return new Date(rawDate);
+  }
+
   static _formatDate(date) {
-    // Example: Nov 12, 2025
+    // Example: Nov 13, 2025
     return date.toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
@@ -36,7 +55,7 @@ export default class Todo {
     // Name
     nameEl.textContent = this._data.name;
 
-    // Date (always present now)
+    // Date
     dateEl.textContent = Todo._formatDate(this._data.date);
 
     // Completed state
@@ -57,11 +76,10 @@ export default class Todo {
 
 /**
  * Helper used for both initial render and new adds.
- * Keeps all todo DOM building in one place.
  */
 export function renderTodo(item, listElement) {
   const todo = new Todo({ data: item, selector: "#todo-template" });
   const todoElement = todo.getView();
   listElement.append(todoElement);
-  return todoElement; // ✅ prevents “undefined” text
+  return todoElement;
 }

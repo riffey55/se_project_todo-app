@@ -16,6 +16,7 @@ const SELECTORS = {
   counter: "#todo-counter",
 };
 
+// --- POPUP SUBMIT HANDLER ---
 const addTodoPopup = new PopupWithForm(SELECTORS.popup, (values) => {
   const newTodo = {
     id: uuidv4(),
@@ -24,35 +25,45 @@ const addTodoPopup = new PopupWithForm(SELECTORS.popup, (values) => {
     completed: false,
   };
 
-  // Let Section call the renderer
+  // Render the new <li>
   const el = renderTodo(newTodo, document.querySelector(SELECTORS.list));
-  todoSection.addItem(el); // ✅ pass the <li>, not the data
 
-  counter.updateTotal(true);
+  // Add both the <li> element and the new todo data
+  todoSection.addItem(el, newTodo);
+
+  // Recalculate using the internal array stored in Section
+  counter.recalculate(todoSection._items);
+
+  // Close the modal
   addTodoPopup.close();
 });
+
 addTodoPopup.setEventListeners();
 
+// --- COUNTER INSTANCE ---
 const counter = new Counter(
   Array.isArray(C.initialTodos) ? C.initialTodos : [],
   SELECTORS.counter
 );
 
+// --- SECTION INSTANCE ---
 const todoSection = new Section(
   {
     items: C.initialTodos,
     renderer: (item) =>
-      renderTodo(item, document.querySelector(SELECTORS.list)), // ✅ no getContainer
+      renderTodo(item, document.querySelector(SELECTORS.list)),
   },
   SELECTORS.list
 );
 
 todoSection.renderItems();
 
+// --- FORM VALIDATION ---
 const formElement = document.querySelector(SELECTORS.form);
 const formValidator = new FormValidator(validationConfig, formElement);
 formValidator.enableValidation();
 
+// --- OPEN POPUP BUTTON ---
 document
   .querySelector(SELECTORS.openButton)
   .addEventListener("click", () => addTodoPopup.open());
