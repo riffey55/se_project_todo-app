@@ -1,0 +1,23 @@
+{
+  "name": "cwd",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">",
+  "homepage": "https://github.com/riffey55/se_project_todo-app#readme",
+  "bugs": {
+    "url": "https://github.com/riffey55/se_project_todo-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riffey55/se_project_todo-app.git"
+  },
+  "license": "ISC",
+  "author": "Beren Riffey",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

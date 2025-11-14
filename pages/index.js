@@ -16,7 +16,23 @@ const SELECTORS = {
   counter: "#todo-counter",
 };
 
-// --- POPUP SUBMIT HANDLER ---
+// ============================================================
+// CALLBACKS (needed by Todo.js)
+// ============================================================
+
+// When a checkbox is toggled
+function handleCheck() {
+  counter.recalculate(todoSection._items);
+}
+
+// When a todo is deleted
+function handleDelete() {
+  counter.recalculate(todoSection._items);
+}
+
+// ============================================================
+// POPUP SUBMIT HANDLER
+// ============================================================
 const addTodoPopup = new PopupWithForm(SELECTORS.popup, (values) => {
   const newTodo = {
     id: uuidv4(),
@@ -26,44 +42,62 @@ const addTodoPopup = new PopupWithForm(SELECTORS.popup, (values) => {
   };
 
   // Render the new <li>
-  const el = renderTodo(newTodo, document.querySelector(SELECTORS.list));
+  const el = renderTodo(
+    newTodo,
+    document.querySelector(SELECTORS.list),
+    handleCheck,
+    handleDelete
+  );
 
-  // Add both the <li> element and the new todo data
+  // Add element + data to Section
   todoSection.addItem(el, newTodo);
 
-  // Recalculate using the internal array stored in Section
+  // Update counter
   counter.recalculate(todoSection._items);
 
-  // Close the modal
+  // Close modal
   addTodoPopup.close();
 });
 
 addTodoPopup.setEventListeners();
 
-// --- COUNTER INSTANCE ---
+// ============================================================
+// COUNTER
+// ============================================================
 const counter = new Counter(
   Array.isArray(C.initialTodos) ? C.initialTodos : [],
   SELECTORS.counter
 );
 
-// --- SECTION INSTANCE ---
+// ============================================================
+// SECTION (initial render)
+// ============================================================
 const todoSection = new Section(
   {
     items: C.initialTodos,
     renderer: (item) =>
-      renderTodo(item, document.querySelector(SELECTORS.list)),
+      renderTodo(
+        item,
+        document.querySelector(SELECTORS.list),
+        handleCheck,
+        handleDelete
+      ),
   },
   SELECTORS.list
 );
 
 todoSection.renderItems();
 
-// --- FORM VALIDATION ---
+// ============================================================
+// FORM VALIDATION
+// ============================================================
 const formElement = document.querySelector(SELECTORS.form);
 const formValidator = new FormValidator(validationConfig, formElement);
 formValidator.enableValidation();
 
-// --- OPEN POPUP BUTTON ---
+// ============================================================
+// OPEN POPUP BUTTON
+// ============================================================
 document
   .querySelector(SELECTORS.openButton)
   .addEventListener("click", () => addTodoPopup.open());

@@ -1,7 +1,7 @@
 // components/Todo.js
 
 export default class Todo {
-  constructor({ data, selector }) {
+  constructor({ data, selector, handleCheck, handleDelete }) {
     this._selector = selector;
 
     this._data = {
@@ -9,6 +9,10 @@ export default class Todo {
       completed: Boolean(data?.completed),
       date: this._normalizeDate(data?.date),
     };
+
+    // callbacks for updating the counter in the main script
+    this._handleCheck = handleCheck;
+    this._handleDelete = handleDelete;
   }
 
   // Make sure we treat "YYYY-MM-DD" as a local date (no timezone shift)
@@ -64,10 +68,20 @@ export default class Todo {
     // Handlers
     deleteBtn.addEventListener("click", () => {
       template.remove();
+
+      // notify the outside code so it can update the counter
+      if (typeof this._handleDelete === "function") {
+        this._handleDelete();
+      }
     });
 
     checkbox.addEventListener("change", () => {
       this._data.completed = checkbox.checked;
+
+      // notify the outside code so it can recalculate the counter
+      if (typeof this._handleCheck === "function") {
+        this._handleCheck();
+      }
     });
 
     return template;
@@ -77,8 +91,13 @@ export default class Todo {
 /**
  * Helper used for both initial render and new adds.
  */
-export function renderTodo(item, listElement) {
-  const todo = new Todo({ data: item, selector: "#todo-template" });
+export function renderTodo(item, listElement, handleCheck, handleDelete) {
+  const todo = new Todo({
+    data: item,
+    selector: "#todo-template",
+    handleCheck,
+    handleDelete,
+  });
   const todoElement = todo.getView();
   listElement.append(todoElement);
   return todoElement;
