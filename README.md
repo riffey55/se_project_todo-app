@@ -7,46 +7,51 @@
 </p>
 
 <h1 align="center">🪄 Simple To-Do App</h1>
+
 <p align="center"><i>Class-based To-Do list with clean BEM styling and a cozy vibe.</i></p>
 
 <p align="center">
   <a href="https://riffey55.github.io/se_project_todo-app/" target="_blank">🌸 <b>Live Demo</b></a>
-  &nbsp;•&nbsp; <a href="#-features">✨ Features</a>
-  &nbsp;•&nbsp; <a href="#-tech-stack">🛠️ Tech Stack</a>
+  &nbsp;•&nbsp;<a href="#-features">✨ Features</a>
+  &nbsp;•&nbsp;<a href="#-tech-stack">🛠️ Tech Stack</a>
 </p>
+
+🌸 ─────────────────────────────────────────────── 🌸
+
+</div>
 
 ---
 
 ## 💡 Why This Project?
 
 This app was built to strengthen my understanding of **object-oriented programming (OOP)** and **modular JavaScript architecture**.  
-It demonstrates how reusable class components—like the `FormValidator` and `Todo` classes—can keep code organized and scalable.  
-Beyond functionality, I focused on **clean BEM-based design** and a simple, accessible user experience.
+It showcases how reusable class components—like `FormValidator` and `Todo`—help keep a project organized, scalable, and easy to maintain.  
+Beyond functionality, I focused on clean **BEM-based styling** and creating a simple, accessible user experience.
 
-🌸 ─────────────────────────────────────────────── 🌸
-
-</div>
+---
 
 ## 🪶 Overview
 
-A simple, object-oriented **To-Do List App** built during **TripleTen Sprint 7** to demonstrate modular JavaScript structure and clean BEM-based design.  
-Tasks can be added, deleted, and marked as complete—all handled through reusable class components.
+A simple, object-oriented **To-Do List App** built during **TripleTen Sprint 7** to demonstrate modular JavaScript structure and class-based UI components.  
+Users can add tasks, delete them, and mark them as completed—all handled through dynamic DOM rendering and reusable classes.
 
 ---
 
 ## 💡 Reflection: How Project 8 Builds on Project 7
 
-Project 8 represents a key transition from working with an external API (Project 7 — Spots) to designing independent client-side logic. While Project 7 focused on data retrieval, server communication, and API-driven updates, Project 8 challenged me to implement my own data handling, state management, and DOM rendering. I applied the same modular, OOP structure from earlier sprints but replaced API calls with custom JavaScript logic, using reusable classes to manage popups, validation, and dynamic counters. This project deepened my understanding of how front-end components interact without relying on a backend—bridging the gap between user interface design and data architecture.
+Project 8 represents a shift from working with an external API (Project 7 — Spots) to designing independent client-side logic.  
+While Spots focused on server communication and data retrieval, this project required me to manage my own data, build custom state handling, and design modular DOM components.
 
-**This project marks the point where I began thinking like a full-stack developer—designing both the logic and the experience.**
+By applying the same architectural principles without relying on a backend, I learned how to design full client-side data flows.  
+This project marks a key point where I began thinking more like a full-stack developer—designing both the logic and the experience.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5** – semantic structure of the app
-- **CSS3 (BEM)** – modular and maintainable styling
-- **Vanilla JavaScript (ES6)** – logic and DOM manipulation
+- **HTML5** – semantic markup
+- **CSS3 (BEM)** – modular, maintainable styles
+- **Vanilla JavaScript (ES6 modules & classes)**
 - **Git & GitHub** – version control
 - **GitHub Pages** – deployment
 
@@ -54,19 +59,22 @@ Project 8 represents a key transition from working with an external API (Project
 
 ![App Screenshot](./images/app-preview.png)
 
+---
+
 ## ✨ Features
 
 ✅ Add, delete, and mark tasks as completed  
-✅ Form validation via `FormValidator` class  
-✅ Modular `Todo` component for better scalability  
+✅ Class-based architecture (`Todo`, `PopupWithForm`, `FormValidator`, `Section`)  
 ✅ UUID-based unique task identifiers  
-✅ Clean and responsive interface
+✅ Real-time counter for completed tasks  
+✅ Responsive and clean UI with BEM structure  
+✅ Fully modular codebase
 
 ---
 
 ## 🌐 Live Demo
 
-🔗 [View the live project on GitHub Pages](https://riffey55.github.io/se_project_todo-app/)
+🔗 **https://riffey55.github.io/se_project_todo-app/**
 
 ---
 
@@ -76,15 +84,15 @@ Project 8 represents a key transition from working with an external API (Project
 
 🌸 ─────────────────────────────────────────────── 🌸
 
-## 📝 **Recent Updates**
+## 📝 Recent Updates
 
 **November 4, 2025**  
-**Commit:** `fix: update checkbox icon and refresh project files`
+**Commit:** `fix: restore checkbox icon and refresh repo structure`
 
-✨ Replaced missing `checkbox.svg` to restore checklist functionality.  
-🧹 Removed outdated history files and streamlined repo organization.  
-📝 Refreshed `README.md` for clarity and alignment with current project version.  
-✅ Verified local functionality before push; repo confirmed production-ready.
+✨ Replaced missing `checkbox.svg` to restore checklist functionality  
+🧹 Cleaned outdated history files and reorganized the repo  
+📝 Updated README for clarity  
+✅ Confirmed full functionality locally and on GitHub Pages
 
 🌸 ─────────────────────────────────────────────── 🌸
 
@@ -95,4 +103,4 @@ Project 8 represents a key transition from working with an external API (Project
 ## 💻 Author
 
 **Beren Riffey**  
-Created with ❤️ using JavaScript & modular design.
+Created with ❤️ using clean JavaScript and cozy, modular design.
