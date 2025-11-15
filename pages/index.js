@@ -21,12 +21,17 @@ const SELECTORS = {
 // ============================================================
 
 // When a checkbox is toggled
-function handleCheck() {
+function handleCheck(todoData) {
+  const item = todoSection._items.find((t) => t.id === todoData.id);
+  if (item) item.completed = todoData.completed;
+
   counter.recalculate(todoSection._items);
 }
 
-// When a todo is deleted
-function handleDelete() {
+function handleDelete(todoData) {
+  const index = todoSection._items.findIndex((t) => t.id === todoData.id);
+  if (index !== -1) todoSection._items.splice(index, 1);
+
   counter.recalculate(todoSection._items);
 }
 

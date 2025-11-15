@@ -5,6 +5,7 @@ export default class Todo {
     this._selector = selector;
 
     this._data = {
+      id: data?.id,
       name: data?.name ?? "",
       completed: Boolean(data?.completed),
       date: this._normalizeDate(data?.date),
@@ -71,7 +72,7 @@ export default class Todo {
 
       // notify the outside code so it can update the counter
       if (typeof this._handleDelete === "function") {
-        this._handleDelete();
+        this._handleDelete(this._data);
       }
     });
 
@@ -80,7 +81,7 @@ export default class Todo {
 
       // notify the outside code so it can recalculate the counter
       if (typeof this._handleCheck === "function") {
-        this._handleCheck();
+        this._handleCheck(this._data);
       }
     });
 

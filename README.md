@@ -100,7 +100,24 @@ This project marks a key point where I began thinking more like a full-stack dev
 
 ---
 
+## 🙏 Acknowledgments
+
+A special thank-you to the TripleTen reviewers for their thoughtful guidance and detailed feedback throughout this project.  
+Your comments helped me refine my approach, deepen my understanding of modular JavaScript, and grow as a developer.  
+I truly appreciate the care and clarity you bring to the review process. You make the learning experience smoother and more meaningful.
+
+---
+
+</div>
+
+---
+
+🌸 Curious about the testing process?  
+You can find console screenshots, validation notes, and my full test plan in the [Reviewer Notes](./REVIEWER_NOTES.md).
+
+---
+
 ## 💻 Author
 
-**Beren Riffey**  
-Created with ❤️ using clean JavaScript and cozy, modular design.
+Beren Riffey
+Created using clean JavaScript and modular design.
